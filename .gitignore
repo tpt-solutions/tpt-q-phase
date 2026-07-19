@@ -1,0 +1,57 @@
+# Rust / Cargo
+/target/
+**/target/
+Cargo.lock
+*.pdb
+
+# Go
+/bin/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+vendor/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.mypy_cache/
+.pytest_cache/
+
+# FPGA / VHDL / Verilog (Xilinx Vivado, Intel Quartus, ModelSim, etc.)
+*.jou
+*.log
+*.str
+.Xil/
+xsim.dir/
+*.wdb
+*.vcd
+*.vvp
+work/
+transcript
+*.qws
+*.qdb
+db/
+incremental_db/
+output_files/
+*.rpt
+*.summary
+*.sof
+*.pof
+
+# Editors / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
