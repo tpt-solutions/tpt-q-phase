@@ -7,57 +7,62 @@ Tasks are grouped into phases. Phases 7 and 8 are hardware-dependent and blocked
 ---
 
 ## Phase 0 — Project & Repo Setup
-- [ ] Initialize git repository
-- [ ] Add `.gitignore` (Rust/Cargo, VHDL/Verilog build artifacts, Go/Python if used)
-- [ ] Add `LICENSE-MIT` (© TPT Solutions)
-- [ ] Add `LICENSE-APACHE` (© TPT Solutions)
-- [ ] Add dual-license notice to README ("Licensed under either of Apache License 2.0 or MIT license at your option")
-- [ ] Establish SPDX header convention for source files (`SPDX-License-Identifier: MIT OR Apache-2.0`)
-- [ ] Scaffold Cargo workspace (`Cargo.toml`) with member crates: sequencer, cryo-control, calibration, interface
-- [ ] Set up CI skeleton (build + test on push/PR)
-- [ ] Add `CONTRIBUTING.md`
-- [ ] Add `CODE_OF_CONDUCT.md`
-- [ ] Add issue and PR templates
+- [x] Initialize git repository
+- [x] Add `.gitignore` (Rust/Cargo, VHDL/Verilog build artifacts, Go/Python if used)
+- [x] Add `LICENSE-MIT` (© TPT Solutions)
+- [x] Add `LICENSE-APACHE` (© TPT Solutions)
+- [x] Add dual-license notice to README ("Licensed under either of Apache License 2.0 or MIT license at your option")
+- [x] Establish SPDX header convention for source files (`SPDX-License-Identifier: MIT OR Apache-2.0`)
+- [x] Scaffold Cargo workspace (`Cargo.toml`) with member crates: sequencer, cryo-control, calibration, interface
+- [x] Set up CI skeleton (build + test on push/PR)
+- [x] Add `CONTRIBUTING.md`
+- [x] Add `CODE_OF_CONDUCT.md`
+- [x] Add issue and PR templates
 
 ## Phase 1 — Quantum Circuit Simulator & Core Types
 *(no hardware needed)*
-- [ ] Define core Rust types: qubit state representation
-- [ ] Define gate set (Hadamard, CNOT, etc.)
-- [ ] Define pulse parameter types (amplitude, frequency, phase, timing)
-- [ ] Build or integrate a quantum circuit simulator backend (custom Rust simulator, or Qiskit/Cirq bindings) as a stand-in for real hardware
-- [ ] Unit tests for gate sequences against the simulator
+- [x] Define core Rust types: qubit state representation
+- [x] Define gate set (Hadamard, CNOT, etc.)
+- [x] Define pulse parameter types (amplitude, frequency, phase, timing)
+- [x] Build or integrate a quantum circuit simulator backend (custom Rust simulator, or Qiskit/Cirq bindings) as a stand-in for real hardware
+- [x] Unit tests for gate sequences against the simulator
 
 ## Phase 2 — Pulse Sequencer (software model)
-- [ ] Design deterministic scheduling model for nanosecond-precision pulse timing
-- [ ] Implement `no_std` core logic translating gate sequences → pulse parameter streams
-- [ ] Build software-only timing/jitter validation harness (stand-in for real clock hardware)
-- [ ] Property/unit tests for determinism and timing bounds (<10ns jitter target)
+- [x] Design deterministic scheduling model for nanosecond-precision pulse timing
+- [x] Implement `no_std` core logic translating gate sequences → pulse parameter streams
+- [x] Build software-only timing/jitter validation harness (stand-in for real clock hardware)
+- [x] Property/unit tests for determinism and timing bounds (<10ns jitter target)
 
 ## Phase 3 — Cryogenic Control Layer (software model)
-- [ ] Define temperature-stage data model (300K / 4K / 100mK / 10mK)
-- [ ] Define heater control interface as a trait/abstraction
-- [ ] Implement a simulated cryostat backend for development without real hardware
-- [ ] Implement PID/control-loop logic for heater adjustment
-- [ ] Tests against simulated thermal profiles
+- [x] Define temperature-stage data model (300K / 4K / 100mK / 10mK)
+- [x] Define heater control interface as a trait/abstraction
+- [x] Implement a simulated cryostat backend for development without real hardware
+- [x] Implement PID/control-loop logic for heater adjustment
+- [x] Tests against simulated thermal profiles
 
 ## Phase 4 — Qubit Calibration Engine
-- [ ] Define calibration data model: T1 relaxation, T2 coherence, gate fidelity
-- [ ] Implement characterization routines against the Phase 1 simulator backend
-- [ ] Implement auto-tuning feedback loop for pulse parameters
-- [ ] Validation tests using simulated qubit noise models
+- [x] Define calibration data model: T1 relaxation, T2 coherence, gate fidelity
+- [x] Implement characterization routines against the Phase 1 simulator backend
+- [x] Implement auto-tuning feedback loop for pulse parameters
+- [x] Validation tests using simulated qubit noise models
 
 ## Phase 5 — Quantum-Classical Interface (API layer)
-- [ ] **Open decision:** choose Go vs Python for the API layer
-- [ ] Define API contract: submit circuit, retrieve results, streaming/polling for hybrid workflows
-- [ ] Implement API server backed by the simulator/pulse-sequencer stack
-- [ ] Build client SDK/example
-- [ ] Integration tests
+- [x] **Open decision:** choose Go vs Python for the API layer *(deferred — implemented contract in Rust as reference; see note below)*
+- [x] Define API contract: submit circuit, retrieve results, streaming/polling for hybrid workflows
+- [x] Implement API server backed by the simulator/pulse-sequencer stack
+- [x] Build client SDK/example
+- [x] Integration tests
+
+> **Phase 5 API language note:** The Go-vs-Python decision remains open. The
+> `interface` crate implements the language-neutral JSON API *contract* plus a
+> simulator-backed reference server in Rust, so the contract is validated today
+> and a Go/Python server can mirror it exactly later.
 
 ## Phase 6 — Error Correction Layer
-- [ ] Implement surface code encoding/decoding logic
-- [ ] Real-time syndrome monitoring against simulated qubit states
-- [ ] Corrective pulse dispatch back through the Pulse Sequencer interface
-- [ ] Tests using simulated decoherence/error injection
+- [x] Implement surface code encoding/decoding logic
+- [x] Real-time syndrome monitoring against simulated qubit states
+- [x] Corrective pulse dispatch back through the Pulse Sequencer interface
+- [x] Tests using simulated decoherence/error injection
 
 ## Phase 7 — FPGA Integration
 **Blocked: requires FPGA dev board**

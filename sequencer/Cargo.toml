@@ -1,0 +1,18 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
+[package]
+name = "sequencer"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "Deterministic nanosecond-precision pulse sequencer (no_std core)"
+
+[dependencies]
+num-complex.workspace = true
+thiserror.workspace = true
+
+[features]
+default = []
+std = []

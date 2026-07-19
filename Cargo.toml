@@ -1,0 +1,26 @@
+[workspace]
+resolver = "2"
+members = [
+    "sequencer",
+    "cryo-control",
+    "calibration",
+    "interface",
+    "error-correction",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+authors = ["TPT Solutions"]
+repository = "https://github.com/TPT-Solutions/tpt-q-phase"
+description = "Open-source, memory-safe quantum control stack"
+
+[workspace.dependencies]
+num-complex = "0.4"
+nalgebra = "0.33"
+thiserror = "1"
+serde = { version = "1", features = ["derive"] }
+rand = "0.8"
+rand_distr = "0.4"
+tracing = "0.1"

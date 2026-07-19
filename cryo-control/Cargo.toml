@@ -1,0 +1,14 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
+[package]
+name = "cryo-control"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "Cryogenic control layer: temperature stages and heater control (software model)"
+
+[dependencies]
+thiserror.workspace = true
+serde.workspace = true

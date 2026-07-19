@@ -1,0 +1,18 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
+[package]
+name = "interface"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "Quantum-classical API interface (Go or Python decision pending)"
+
+[dependencies]
+sequencer = { path = "../sequencer" }
+calibration = { path = "../calibration" }
+error-correction = { path = "../error-correction" }
+serde.workspace = true
+serde_json = "1"
+thiserror.workspace = true
